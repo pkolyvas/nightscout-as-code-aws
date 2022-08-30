@@ -15,7 +15,7 @@ provider "aws" {
 
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "2.68.0"
+  version = "3.14.0"
 
   name = "nightscout-vpc"
   cidr = "10.223.0.0/16"
