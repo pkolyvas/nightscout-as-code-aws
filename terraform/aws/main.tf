@@ -43,7 +43,7 @@ module "launch_key_pair" {
 
 module "security_groups" {
   source = "./security_groups/"
-  vpc    = module.vpc.vpc_id
+  vpc_id = module.vpc.vpc_id
 }
 
 # This is our Nightscount Module
@@ -52,6 +52,10 @@ module "nightscout" {
   security_groups = [module.security_groups.allow-https] # Add "module.security_groups.allow-ssh" if you'd like to be able to access the instance via SSH
   subnet          = module.vpc.public_subnets.0
   launch_key      = module.launch_key_pair.key_pair_id
+
+  # You can change this to any AMI of your choice. 
+  # Defaults to the official Canonical Ubuntu 22.04 LTS amd64 server AMI
+  ami = data.aws_ami.ubuntu-22_04-amd64.id
 
   domain   = var.my_nightscout_domain
   features = var.nightscout_features

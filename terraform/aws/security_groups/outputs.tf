@@ -3,5 +3,5 @@ output "allow-https" {
 }
 
 output "allow-ssh" {
-  value = aws_security_group.allow-ssh
+  value = aws_security_group.allow-ssh.id
 }

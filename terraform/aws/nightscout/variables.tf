@@ -20,7 +20,7 @@ variable "api_key" {
 }
 
 variable "security_groups" {
-  type        = list(any)
+  type        = list(string)
   description = "A list of security group IDs"
 }
 
@@ -31,4 +31,9 @@ variable "subnet" {
 variable "launch_key" {
   type        = string
   description = "The launch key used for the instance and for ssh connections."
+}
+
+variable "ami" {
+  type        = string
+  description = "The AMI used for the EC2 instance start"
 }

@@ -9,11 +9,7 @@ variable "nightscout_api_key" {
 }
 variable "nightscout_features" {
   type        = string
-  default     = "careportal rawbg iob"
-  description = "(Optional) A space-separated list of features you'd like to enable in Nightscout. Defaults to \"careportal rawbg iob\"."
+  description = "(Required) A space-separated list of features you'd like to enable in Nightscout. Defaults are normally \"careportal rawbg iob\". Please refer to the Nightscout documentation if you're unsure: https://nightscout.github.io/nightscout/setup_variables/#features"
 }
 
-variable "subnet" {
-  type = string
-}
 
