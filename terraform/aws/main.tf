@@ -49,7 +49,7 @@ module "security_groups" {
 # This is our Nightscount Module
 module "nightscout" {
   source          = "./nightscout/"
-  security_groups = [module.security_groups.allow-https] # Add "module.security_groups.allow-ssh" if you'd like to be able to access the instance via SSH
+  security_groups = [module.security_groups.allow-https, module.security_groups.allow-https] # Add "module.security_groups.allow-ssh" if you'd like to be able to access the instance via SSH
   subnet          = module.vpc.public_subnets.0
   launch_key      = module.launch_key_pair.key_pair_name
 
