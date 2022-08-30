@@ -23,5 +23,5 @@ resource "aws_instance" "nightscout-central" {
 }
 
 data "local_file" "nightscout-configure" {
-  filename = "./nightscout-bootstrap.sh"
+  filename = "nightscout/nightscout-bootstrap.sh"
 }
