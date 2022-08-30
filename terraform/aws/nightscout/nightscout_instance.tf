@@ -19,7 +19,7 @@ resource "aws_instance" "nightscout-central" {
       ami,
     ]
   }
-  user_data = data.local_file.nightscout-configure
+  user_data = data.local_file.nightscout-configure.content
 }
 
 data "local_file" "nightscout-configure" {
