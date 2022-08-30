@@ -5,6 +5,7 @@ variable "my_nightscout_domain" {
 
 variable "nightscout_api_key" {
   type        = string
+  sensitive   = true
   description = "(Required) Please set an API key, aka password, to access your Nightscout instance. Please strongly consider making this hard to guess, but easy to remember. https://xkcd.com/936/"
 }
 variable "nightscout_features" {
