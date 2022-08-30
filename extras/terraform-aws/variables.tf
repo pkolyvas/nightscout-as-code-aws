@@ -13,3 +13,7 @@ variable "nightscout_features" {
   description = "(Optional) A space-separated list of features you'd like to enable in Nightscout. Defaults to \"careportal rawbg iob\"."
 }
 
+variable "subnet" {
+  type = string
+}
+

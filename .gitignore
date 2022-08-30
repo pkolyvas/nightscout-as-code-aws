@@ -1,1 +1,3 @@
 /mongo-data
+*.terraform.lock.hcl
+*.terraform/

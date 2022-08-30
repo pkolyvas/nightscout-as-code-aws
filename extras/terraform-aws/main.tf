@@ -48,8 +48,8 @@ module "security_groups" {
 # This is our Nightscount Module
 module "nightscout" {
   source   = "./nightscout/"
-  subnet   = module.vpc.public_subnets.0
   security_groups = [ module.security_groups.https ] # Add "module.security_groups.ssh" if you'd like to be able to access the instance via SSH
+  subnet = module.vpc.public_subnets.0
   domain   = var.my_nightscout_domain
   features = var.nightscout_features
   api_key  = var.nightscout_api_key

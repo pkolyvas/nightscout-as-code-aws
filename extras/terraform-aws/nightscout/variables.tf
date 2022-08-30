@@ -18,3 +18,12 @@ variable "api_key" {
   type = string
   description = "Nightscout API key. Passed-in to the module ideally, but can be set manually."
 }
+
+variable "security_groups" {
+    type = list
+    description = "A list of security group IDs"
+}
+
+variable "subnet" {
+  type = string
+}

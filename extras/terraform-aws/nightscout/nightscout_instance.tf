@@ -12,12 +12,12 @@ resource "aws_instance" "nightscout-central" {
     "Status"          = "Terraformed"
   }
   
-  vpc_security_group_ids = 
+  vpc_security_group_ids = [ var.security_groups ]
   subnet_id              = module.vpc.public_subnets.0
   lifecycle {
     ignore_changes = [
       ami,
     ]
   }
-   user_data = file(nightscout-bootstrap.sh)
+   user_data= file(nightscout-bootstrap.sh)
 }
