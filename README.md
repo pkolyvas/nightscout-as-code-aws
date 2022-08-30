@@ -9,7 +9,7 @@ This repo contains all the pieces of to run Nightscout-as-Code (NaC). With a few
 The goal of this project is to make it *relatively* straightforward to deploy Nightscout CGM, on almost any platform, now that Heroku no longer offers a free tier.
 ## Approach
 
-This project * **does not** provide a free alternative* to Heroku. Rather it takes the position that these files can be easily run anywhere. We've even provided the ability to spin up and run Nightscout on AWS with very little effort.
+This project ***does not** provide a free alternative to Heroku.* Rather it takes the position that these files can be easily run anywhere. We've even provided the ability to spin up and run Nightscout on AWS with very little effort.
 
 ## Caveats
 
