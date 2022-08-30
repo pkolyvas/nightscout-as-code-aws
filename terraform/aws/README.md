@@ -1,18 +1,18 @@
-# NaC on AWS
+# NaC on AWS with Terraform
 
 Nightscout-as-Code on AWS provides a template you can easily customize to provision and deploy nightscout on AWS.
 
 ## Requirements
 
-- Install `terraform` & `packer`
 - AWS Account
-- Domain registered and configured to use AWS's nameservers
+- A domain managed by Route53
 
+Additionally you'll need a GitHub and Terraform Cloud account if you'd like the easy route. 
 
-## For those new to Terraform
+## New to Terraform and, well, this whole thing?
 
-Follow this guide:
+Follow the guide in the wiki: 
 
-## Things you'll need on hand
+## What's missing
 
-[TODO]
+I'm not even sure yet. 
