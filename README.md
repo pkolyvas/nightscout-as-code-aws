@@ -1,5 +1,7 @@
 # Nightscout as Code 
 
+**Note: this is a work-in-progress and should not be used until this notice is removed**
+
 This repo contains all the pieces of to run Nightscout-as-Code (NaC). With a few straightforward commands you'll be able to spin up and run Nightscout.
 
 ## Goal
