@@ -1,7 +1,7 @@
 resource "aws_instance" "nightscout-central" {
   ami                         = var.ami
   associate_public_ip_address = false
-  availability_zone           = "ca-central-1a"
+  availability_zone           = module.vpc.public_subnets.0
   instance_type               = var.instance_type
   monitoring                  = false
   key_name                    = var.key
@@ -12,6 +12,7 @@ resource "aws_instance" "nightscout-central" {
     "Name"            = "Nightscout and Mongo"
     "Status"          = "Terraformed"
   }
+  
   vpc_security_group_ids = var.security_groups
   subnet_id              = var.subnet
   lifecycle {

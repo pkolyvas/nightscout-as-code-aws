@@ -36,6 +36,8 @@ The lowest effort path is the AWS path at the moment. It has two requirements:
 - Use AWS to register a domain name
 - Sign up for Terraform Cloud's free tier
 
+We've created a guide you can follow here: 
+
 Otherwise:
 
 - You'll need a domain name routed to the correct
