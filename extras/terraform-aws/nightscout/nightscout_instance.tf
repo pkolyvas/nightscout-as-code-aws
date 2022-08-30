@@ -1,7 +1,7 @@
 resource "aws_instance" "nightscout-central" {
   ami                         = var.ami
   associate_public_ip_address = false
-  availability_zone           = module.vpc.public_subnets.0
+  availability_zone           = 
   instance_type               = var.instance_type
   monitoring                  = false
   key_name                    = var.key
@@ -13,47 +13,24 @@ resource "aws_instance" "nightscout-central" {
     "Status"          = "Terraformed"
   }
   
-  vpc_security_group_ids = var.security_groups
-  subnet_id              = var.subnet
+  vpc_security_group_ids = 
+  subnet_id              = module.vpc.public_subnets.0
   lifecycle {
     ignore_changes = [
       ami,
     ]
   }
-}
+   user_data = <<EOF
+#!/bin/bash
+echo "Configuring the instance environment"
+set NS-API-KEY="${var.nightscout_api_key}"
+set NS-DOMAIN="${var.domain}"
+echo "Updating the system and installing Docker CE"
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt update
+sudo apt install docker-ce
 
-resource "aws_ebs_volume" "nightscout-central-data" {
-  availability_zone = "ca-central-1a"
-  size              = 16
-  tags = {
-    Name = "Nightscout central data volume"
-  }
-}
-
-resource "aws_volume_attachment" "nightscout-central-data" {
-  device_name = "/dev/sdg"
-  volume_id   = aws_ebs_volume.nightscout-central-data.id
-  instance_id = aws_instance.nightscout-central.id
-}
-
-resource "aws_ebs_volume" "nightscout-central-var" {
-  availability_zone = "ca-central-1a"
-  size              = 8
-  tags = {
-    Name = "Nightscout central var volume"
-  }
-}
-
-resource "aws_volume_attachment" "nightscout-central-var" {
-  device_name = "/dev/sdf"
-  volume_id   = aws_ebs_volume.nightscout-central-var.id
-  instance_id = aws_instance.nightscout-central.id
-}
-
-resource "aws_route53_record" "nightscout-central-private" {
-  zone_id = var.private_domain_zone
-  name    = "nightscout-central.shiftfocus.ca"
-  type    = "A"
-  ttl     = "30"
-  records = [aws_instance.nightscout-central.private_ip]
+EOF
 }

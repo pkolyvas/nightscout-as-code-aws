@@ -33,4 +33,6 @@ module "vpc" {
 module "nightscout" {
   source = "./nightscout/"
   domain = var.my_nightscout_domain
+  features = var.nightscout_features
+  api_key = var.nightscout_api_key
 }
