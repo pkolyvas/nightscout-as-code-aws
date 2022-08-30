@@ -51,7 +51,7 @@ module "nightscout" {
   source          = "./nightscout/"
   security_groups = [module.security_groups.allow-https] # Add "module.security_groups.allow-ssh" if you'd like to be able to access the instance via SSH
   subnet          = module.vpc.public_subnets.0
-  launch_key      = module.launch_key_pair.key_pair_id
+  launch_key      = module.launch_key_pair.key_pair_name
 
   # You can change this to any AMI of your choice. 
   # Defaults to the official Canonical Ubuntu 22.04 LTS amd64 server AMI
