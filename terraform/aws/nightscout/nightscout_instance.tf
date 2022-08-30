@@ -1,6 +1,6 @@
 resource "aws_instance" "nightscout-central" {
   ami                         = var.ami
-  associate_public_ip_address = false
+  associate_public_ip_address = true
   instance_type               = var.instance_type
   monitoring                  = false
   key_name                    = var.launch_key
