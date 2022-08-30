@@ -17,15 +17,20 @@ This is still fairly technical. However, taking the codified approach over the G
 
 It has several components:
 
-- (Nightscout)[] (run via docker image)
-- (MongoDB)[] (run via docker image)
-- (Caddy)[https://github.com/caddyserver/caddy]
-- Caddy-Docker-Proxy
+- [Nightscout]() (run via docker image)
+- [MongoDB]() (run via docker image)
+- [Caddy](https://github.com/caddyserver/caddy)
+- [Caddy-Docker-Proxy](https://github.com/lucaslorentz/caddy-docker-proxy)
 
 ## Requirements
 
 - You'll need a domain name routed to the correct
 - Command-line access to a host for configuration and setup.
 
+## Usage
+
+[TODO]
+
 ## Extras
 
+[TODO]
