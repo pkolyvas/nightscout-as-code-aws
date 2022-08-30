@@ -41,6 +41,7 @@ module "key_pair" {
   create_private_key = true
 }
 
+# This is our Nightscount Module
 module "nightscout" {
   source   = "./nightscout/"
   domain   = var.my_nightscout_domain

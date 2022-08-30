@@ -1,7 +1,6 @@
 resource "aws_instance" "nightscout-central" {
   ami                         = var.ami
   associate_public_ip_address = false
-  availability_zone           = module.vpc.azs.0
   instance_type               = var.instance_type
   monitoring                  = false
   key_name                    = var.key
@@ -20,18 +19,5 @@ resource "aws_instance" "nightscout-central" {
       ami,
     ]
   }
-   user_data = <<EOF
-#!/bin/bash
-echo "Configuring the instance environment"
-set NS-API-KEY="${var.api_key}"
-set NS-DOMAIN="${var.domain}"
-set NS-FEATURES="${var.features}"
-echo "Updating the system and installing Docker CE"
-sudo apt install apt-transport-https ca-certificates curl software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt update
-sudo apt install docker-ce
-echo "Setting up nightscout"
-EOF
+   user_data = file(nightscout-bootstrap.sh)
 }
