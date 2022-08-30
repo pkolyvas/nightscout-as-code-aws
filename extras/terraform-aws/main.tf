@@ -34,7 +34,7 @@ module "vpc" {
 
 # Source for the key-pair module: 
 # https://registry.terraform.io/modules/terraform-aws-modules/key-pair/aws/2.0.0
-module "key_pair" {
+module "launch_key_pair" {
   source             = "terraform-aws-modules/key-pair/aws"
   version            = "2.0.0"
   key_name           = "nightscout-deploy"
@@ -43,13 +43,16 @@ module "key_pair" {
 
 module "security_groups" {
   source = "./security_groups/"
+  vpc    = module.vpc.vpc_id
 }
 
 # This is our Nightscount Module
 module "nightscout" {
-  source   = "./nightscout/"
-  security_groups = [ module.security_groups.https ] # Add "module.security_groups.ssh" if you'd like to be able to access the instance via SSH
-  subnet = module.vpc.public_subnets.0
+  source          = "./nightscout/"
+  security_groups = [module.security_groups.allow-https] # Add "module.security_groups.allow-ssh" if you'd like to be able to access the instance via SSH
+  subnet          = module.vpc.public_subnets.0
+  launch_key      = module.launch_key_pair.key_pair_id
+
   domain   = var.my_nightscout_domain
   features = var.nightscout_features
   api_key  = var.nightscout_api_key

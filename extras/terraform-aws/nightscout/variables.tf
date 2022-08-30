@@ -1,29 +1,34 @@
 variable "domain" {
-  type = string
+  type        = string
   description = "The domain name used for this instance of nightscout, and registered via AWS. This variable is required."
 }
 
 variable "instance_type" {
-    type = string
-    default = "t3.nano"
-    description = "(Optional) The default instance type used for your installation of Nightscout. Defaults to t3.nano, the smallest instance."
+  type        = string
+  default     = "t3.nano"
+  description = "(Optional) The default instance type used for your installation of Nightscout. Defaults to t3.nano, the smallest instance."
 }
 
 variable "features" {
-    type = string
-     description = "A space-separated list of features to enable in Nightscout. Passed-in to the module ideally, but can be set manually with a space-separated list."
+  type        = string
+  description = "A space-separated list of features to enable in Nightscout. Passed-in to the module ideally, but can be set manually with a space-separated list."
 }
 
 variable "api_key" {
-  type = string
+  type        = string
   description = "Nightscout API key. Passed-in to the module ideally, but can be set manually."
 }
 
 variable "security_groups" {
-    type = list
-    description = "A list of security group IDs"
+  type        = list(any)
+  description = "A list of security group IDs"
 }
 
 variable "subnet" {
   type = string
+}
+
+variable "launch_key" {
+  type        = string
+  description = "The launch key used for the instance and for ssh connections."
 }
