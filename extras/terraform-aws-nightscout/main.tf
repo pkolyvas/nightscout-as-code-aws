@@ -31,5 +31,6 @@ module "vpc" {
 }
 
 module "nightscout" {
-  
+  source = "./nightscout/"
+  domain = var.my_domain
 }
