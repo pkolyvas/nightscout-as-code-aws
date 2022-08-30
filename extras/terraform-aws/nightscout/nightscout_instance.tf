@@ -1,7 +1,7 @@
 resource "aws_instance" "nightscout-central" {
   ami                         = var.ami
   associate_public_ip_address = false
-  availability_zone           = 
+  availability_zone           = module.vpc.azs.0
   instance_type               = var.instance_type
   monitoring                  = false
   key_name                    = var.key
