@@ -103,4 +103,5 @@ networks:
 volumes:
   caddy_data: {}
 EOD
+docker network create caddy
 docker-compose -f /nightscout/docker-compose.yml up -d
