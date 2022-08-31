@@ -1,10 +1,10 @@
 #!/bin/bash
 
 echo "Configuring the instance environment"
-echo 'export NS_API_KEY="${api_key}"' >> /home/ubuntu/.profile
-echo 'export NS_DOMAIN="${domain}"' >> /home/ubuntu/.profile
-echo 'export NS_FEATURES="${features}"' >> /home/ubuntu/.profile
-echo "export COMPOSE_HTTP_TIMEOUT=300" >> /home/ubuntu/.profile
+echo 'export NS_API_KEY="${api_key}"' >> /home/ubuntu/.env
+echo 'export NS_DOMAIN="${domain}"' >> /home/ubuntu/.env
+echo 'export NS_FEATURES="${features}"' >> /home/ubuntu/.env
+echo "export COMPOSE_HTTP_TIMEOUT=300" >> /home/ubuntu/.env
 
 echo "Updating the system and installing Docker CE"
 apt-get install -y apt-transport-https ca-certificates curl software-properties-common
