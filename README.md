@@ -27,7 +27,7 @@ Every iteration herein is relies on a few key components:
 - [MongoDB](https://github.com/mongodb/mongo) (run via docker image)
 - [Caddy-Docker-Proxy](https://github.com/lucaslorentz/caddy-docker-proxy)
 
-We use the awesome [Caddy-Docker-Proxy](https://github.com/lucaslorentz/caddy-docker-proxy) to configure the reverse-proxy and automatically provision a TLS
+We use the awesome [Caddy-Docker-Proxy](https://github.com/lucaslorentz/caddy-docker-proxy) to configure the reverse-proxy and automatically provision a TLS cert.
 
 ## Types of installs
 
