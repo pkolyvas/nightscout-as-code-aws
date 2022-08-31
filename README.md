@@ -6,7 +6,9 @@ This repo contains all the pieces of to run Nightscout-as-Code (NaC). With a few
 
 ## Goal
 
-The goal of this project is to make it *relatively* straightforward to deploy Nightscout CGM, on almost any platform, now that Heroku no longer offers a free tier.
+The goal of this project is to make it *relatively* straightforward to deploy Nightscout CGM, on almost any platform, now that Heroku no longer offers a free tier. 
+
+<img width="1245" alt="Screen Shot 2022-08-30 at 7 51 58 PM" src="https://user-images.githubusercontent.com/43178667/187579976-075b77af-6ed2-4f89-9737-2b89effc2843.png">
 
 It's important to note that this is still fairly technical. However, taking the codified approach over the GUI approach has some benefits:
 - More straightforward for others to troubleshoot, because they can see exactly what's happening
@@ -21,9 +23,8 @@ This project ***does not** provide a free alternative to Heroku*. Rather it take
 
 Every iteration herein is relies on a few key components:
 
-- [Nightscout]() (run via docker image)
-- [MongoDB]() (run via docker image)
-- [Caddy](https://github.com/caddyserver/caddy)
+- [Nightscout](https://github.com/nightscout/cgm-remote-monitor) (run via docker image)
+- [MongoDB](https://github.com/mongodb/mongo) (run via docker image)
 - [Caddy-Docker-Proxy](https://github.com/lucaslorentz/caddy-docker-proxy)
 
 We use the awesome [Caddy-Docker-Proxy](https://github.com/lucaslorentz/caddy-docker-proxy) to configure the reverse-proxy and automatically provision a TLS
