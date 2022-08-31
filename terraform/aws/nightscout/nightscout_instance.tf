@@ -40,8 +40,13 @@ resource "aws_instance" "nightscout" {
   }
 
   provisioner "file" {
-    source      = "nightscout/nightscout-start.sh"
-    destination = "/home/ubuntu/nightscout-start.sh"
+    source      = "nightscout/final-setup.sh"
+    destination = "/home/ubuntu/final-setup.sh"
+  }
+
+   provisioner "file" {
+    source      = "nightscout/start-nightscout.sh"
+    destination = "/home/ubuntu/start-nightscout.sh"
   }
 
   provisioner "remote-exec" {
