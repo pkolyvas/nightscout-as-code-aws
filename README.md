@@ -46,7 +46,7 @@ This path is designed to be relatively low effort with a few basic steps and req
 - Sign up for Terraform Cloud's free tier
 - Use Terraform Cloud to tie it all together and push a button to get your nightscout
 
-We've created (or are creating at the time of this commit) a guide you can follow here: 
+We've created (or are creating at the time of this commit) a guide you can follow here: [https://github.com/pkolyvas/nightscout-as-code/wiki](https://github.com/pkolyvas/nightscout-as-code/wiki)
 
 ### Choosing the Docker Compose path
 
