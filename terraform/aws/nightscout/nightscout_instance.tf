@@ -34,6 +34,7 @@ resource "aws_instance" "nightscout" {
     host        = self.public_ip
   }
 
+  # Uploading files
   provisioner "file" {
     source      = "nightscout/docker-compose.yml"
     destination = "/home/ubuntu/docker-compose.yml"
@@ -44,15 +45,18 @@ resource "aws_instance" "nightscout" {
     destination = "/home/ubuntu/final-setup.sh"
   }
 
+  # Initial configuration
+  provisioner "remote-exec" {
+    script = "nightscout/final-setup.sh"
+  }
+  
+  # Uploading this file to break the remote-exec connection
    provisioner "file" {
     source      = "nightscout/start-nightscout.sh"
     destination = "/home/ubuntu/start-nightscout.sh"
   }
 
   provisioner "remote-exec" {
-    scripts = [
-      "nightscout/final-setup.sh",
-      "nightscout/start-nightscout.sh"
-    ]
+    script =  "nightscout/start-nightscout.sh"
   }
 }

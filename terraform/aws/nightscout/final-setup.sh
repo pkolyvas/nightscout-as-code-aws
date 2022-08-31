@@ -12,3 +12,5 @@ echo "Printing env vars"
 source /home/ubuntu/.profile
 env
 echo "Done!"
+echo "Forcing reconnection"
+exit 
