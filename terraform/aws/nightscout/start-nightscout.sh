@@ -3,10 +3,11 @@
 # For debugging
 echo "Sleeping for 10 seconds..."
 sleep 10 #Ensuring the docker command is available
+# Debugging
 # echo "Printing env vars"
 # source /home/ubuntu/.profile
 # env
-pwd
+# pwd
 echo "Ensuring docker is started"
 sudo systemctl start docker
 echo "Double checking groups"
