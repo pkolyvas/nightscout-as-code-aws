@@ -83,6 +83,6 @@ resource "aws_security_group" "allow-ssh" {
       to_port          = 22
     },
   ]
-  name   = "SSH-Anywhere-Access"
+  name   = "allow-ssh"
   vpc_id = var.vpc_id
 }
