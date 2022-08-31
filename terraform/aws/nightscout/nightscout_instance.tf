@@ -45,9 +45,16 @@ resource "aws_instance" "nightscout" {
   }
 
   provisioner "remote-exec" {
-    inline = [
-      "chmod u+x /home/ubuntu/nightscout-start.sh",
-      "/home/ubuntu/nightscout-start.sh"
+    script = [
+      "nightscout/final-setup.sh",
+      "nightscout/start-nightscout.sh"
     ]
   }
+
+  # provisioner "remote-exec" {
+  #   inline = [
+  #     "chmod u+x /home/ubuntu/nightscout-start.sh",
+  #     "/home/ubuntu/nightscout-start.sh"
+  #   ]
+  # }
 }
