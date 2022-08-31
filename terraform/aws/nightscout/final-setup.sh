@@ -7,5 +7,6 @@ echo "Sleeping to ensure the next shell is ready"
 # For debugging
 sleep 10 #Ensuring the docker command is available
 echo "Printing env vars"
+source /home/ubuntu/.profile
 env
 echo "Done!"
