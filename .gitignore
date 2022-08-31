@@ -1,8 +1,6 @@
 # Temporary during dev
 *.terraform.lock.hcl
 
-
-
 # Local .terraform directories
 **/.terraform/*
 
@@ -37,3 +35,6 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+
+# Mongo
+**/mongo-data
