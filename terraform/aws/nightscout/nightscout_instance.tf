@@ -45,7 +45,7 @@ resource "aws_instance" "nightscout" {
   }
 
   provisioner "remote-exec" {
-    script = [
+    scripts = [
       "nightscout/final-setup.sh",
       "nightscout/start-nightscout.sh"
     ]

@@ -18,5 +18,5 @@ resource "aws_route53_record" "nightscout_domain_record" {
   name    = var.domain
   type    = "A"
   ttl     = "300"
-  records = [aws_instance.nightscout-central.public_ip]
+  records = [aws_instance.nightscout.public_ip]
 }
