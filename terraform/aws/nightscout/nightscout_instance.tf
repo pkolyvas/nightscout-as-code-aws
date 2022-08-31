@@ -37,7 +37,15 @@ resource "aws_instance" "nightscout-central" {
     destination = "/home/ubuntu/docker-compose.yml"
   }
 
+  provisioner "file" {
+    source      = "nightscout/nightscout-start.sh"
+    destination = "/home/ubuntu/nightscout-start.sh"
+  }
+
   provisioner "remote-exec" {
-    script = "nightscout/nightscout-start.sh"
+    inline = [
+      "chmod u+x /home/ubuntu/nightscout-start.sh",
+      "/home/ubuntu/nightscout-start.sh"
+    ]
   }
 }
