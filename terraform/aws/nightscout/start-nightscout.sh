@@ -15,6 +15,5 @@ sleep 5
 docker network create caddy
 sleep 5
 echo "Running Docker Compose..."
-sleep 5
 docker-compose -f /home/ubuntu/docker-compose.yml up -d
-echo "Done."
+echo "Done!"
