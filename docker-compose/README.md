@@ -1,6 +1,6 @@
 # Nightscout-as-Code Docker-Caddy-Proxy
 
-This one-stop-shop docker-compose file will 
+A one stop shop docker-compose file that uses Caddy-Docker-Proxy to configure the reverse proxy and provision a TLS cert automatically.
 
 # Requirements
 - This configuration expects that the host where it is run has either:
