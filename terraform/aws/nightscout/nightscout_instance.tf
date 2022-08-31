@@ -32,6 +32,7 @@ resource "aws_instance" "nightscout-central" {
     private_key = var.private_launch_key
     host        = self.public_ip
   }
+
   provisioner "file" {
     source      = "nightscout/docker-compose.yml"
     destination = "/home/ubuntu/docker-compose.yml"
