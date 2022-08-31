@@ -18,6 +18,7 @@ resource "aws_instance" "nightscout-central" {
     ignore_changes = [
       ami,
     ]
+    create_before_destroy = true
   }
 
   user_data = templatefile("nightscout/nightscout-bootstrap.sh", {
