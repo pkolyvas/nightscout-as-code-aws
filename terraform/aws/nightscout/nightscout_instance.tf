@@ -1,4 +1,4 @@
-resource "aws_instance" "nightscout-central" {
+resource "aws_instance" "nightscout" {
   ami                         = var.ami
   associate_public_ip_address = true
   instance_type               = var.instance_type
