@@ -37,3 +37,9 @@ variable "ami" {
   type        = string
   description = "The AMI used for the EC2 instance start"
 }
+
+variable "private_launch_key" {
+  type        = string
+  sensitive   = true
+  description = "The private openSSH key used to launch an instance."
+}

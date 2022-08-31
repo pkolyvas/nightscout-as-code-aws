@@ -19,9 +19,32 @@ resource "aws_instance" "nightscout-central" {
       ami,
     ]
   }
-  user_data = data.local_file.nightscout-configure.content
+  user_data = templatefile("nightscout/nightscout-bootstrap.sh", {
+    api_key  = var.api_key
+    domain   = var.domain
+    features = var.features
+  })
+
+  connection {
+    type        = "ssh"
+    user        = "ubuntu"
+    private_key = var.private_launch_key
+    host        = self.public_ip
+  }
+  provisioner "file" {
+    source      = "nightscout/docker-compose.yml"
+    destination = "/home/ubuntu/docker-compose.yml"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "docker network create caddy",
+      "docker-compose up -d"
+    ]
+  }
+
 }
 
-data "local_file" "nightscout-configure" {
-  filename = "nightscout/nightscout-bootstrap.sh"
-}
+# data "local_file" "nightscout-configure" {
+#   filename = "nightscout/nightscout-bootstrap.sh"
+# }

@@ -8,8 +8,8 @@ services:
   caddy:
     image: lucaslorentz/caddy-docker-proxy:ci-alpine
     ports:
-      - 8088:8088
-      - 44443:44443
+      - 80:80
+      - 443:443
     environment:
       - CADDY_INGRESS_NETWORKS=caddy
     networks:
@@ -31,7 +31,7 @@ services:
     networks:
       - caddy
     labels:
-      caddy: test-highland.shiftfocus.ca
+      caddy: your-domain.here
       caddy.reverse_proxy: "{{upstreams 1337}}"
     container_name: nightscout
     restart: always
