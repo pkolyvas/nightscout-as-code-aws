@@ -19,29 +19,39 @@ This project ***does not** provide a free alternative to Heroku*. Rather it take
 
 ## What's in the box
 
-It has several components:
+Every iteration herein is relies on a few key components:
 
 - [Nightscout]() (run via docker image)
 - [MongoDB]() (run via docker image)
 - [Caddy](https://github.com/caddyserver/caddy)
 - [Caddy-Docker-Proxy](https://github.com/lucaslorentz/caddy-docker-proxy)
 
-## Requirements
+We use the awesome [Caddy-Docker-Proxy](https://github.com/lucaslorentz/caddy-docker-proxy) to configure the reverse-proxy and automatically provision a TLS
 
-Your requiremetns will differ depending on which path you choose to take.
+## Types of installs
 
-The lowest effort path is the AWS path at the moment. It has two requirements:
+There are two paths at the moment:
+1. The AWS path via Terraform   
+2. The Docker Compose path
+
+### Choosing the AWS path via Terraform
+
+*Note: If you're already familier with Terraform's Open Source CLI tool, you can probably just fork the repo and make any necessary changes.*
+
+This path is designed to be relatively low effort with a few basic steps and requirements. The high level steps are:
+- Sign up for a GitHub account and fork this repository
 - Sign up for an AWS account
 - Retrieve your AWS credentials
 - Use AWS to register a domain name
 - Sign up for Terraform Cloud's free tier
+- Use Terraform Cloud to tie it all together and push a button to get your nightscout
 
-We've created a guide you can follow here: 
+We've created (or are creating at the time of this commit) a guide you can follow here: 
 
-Otherwise:
+### Choosing the Docker Compose path
 
-- You'll need a domain name routed to the correct
-- Command-line access to a host for configuration and setup.
+The docker compose path puts the onus on you to configure and manage everything up to the host. You're responsible for domain hosting, networking, and the host intance. We're the kind of folks that find this stuff fun, but if you're unfamiliar with a lot of the tooling/software involved you may want to start with the AWS path via Terraform Cloud.
+
 
 ## Usage
 
@@ -50,3 +60,7 @@ Otherwise:
 ## Extras
 
 [TODO]
+
+## Supporting this project
+
+If you want to contribute here, that's fine. As for other forms of support, we highly recommend you support the Nightscout project, or other projects like LoopKit, more directly. Or simply join the Nightscout/We Are Not Waiting Discord and offer help to those who might need it. 
