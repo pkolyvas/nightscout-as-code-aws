@@ -52,7 +52,7 @@ resource "aws_security_group" "allow-https" {
 }
 
 resource "aws_security_group" "allow-ssh" {
-  description = "A rule used to open/close SSH from public"
+  description = "Allow SSH from anywhere"
   egress = [
     {
       cidr_blocks = [
