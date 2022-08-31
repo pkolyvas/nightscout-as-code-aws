@@ -11,7 +11,7 @@ Additionally you'll need a GitHub and Terraform Cloud account if you'd like the 
 
 ## New to Terraform and, well, this whole thing?
 
-Follow the guide in the wiki: 
+Follow the guide in the wiki: [https://github.com/pkolyvas/nightscout-as-code/wiki](https://github.com/pkolyvas/nightscout-as-code/wiki). 
 
 ## What's missing
 
