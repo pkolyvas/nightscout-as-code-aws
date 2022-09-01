@@ -11,19 +11,20 @@ It's important to note that this is still fairly technical. However, taking the 
 - Quickly copy this repository as a template
 - Quicky modify the templates for use with your flavour of, well, anything
 - Most importantly it allows you to track any changes you make and revert more easily than clicking a button somewhere
+
 ## Approach
 
-This project ***does not** provide a free alternative to Heroku*. Rather it takes the position that these files can be easily run anywhere. We've even provided the ability to spin up and run Nightscout on AWS with very little effort.
+This project ***does not** provide a free alternative to Heroku*. Rather it takes the position that these files can be easily run anywhere for very low cost. 
 
 ## What's in the box
 
-Every iteration herein is relies on a few key components:
+Every iteration herein relies on a few key components:
 
 - [Nightscout](https://github.com/nightscout/cgm-remote-monitor) (run via docker image)
 - [MongoDB](https://github.com/mongodb/mongo) (run via docker image)
 - [Caddy-Docker-Proxy](https://github.com/lucaslorentz/caddy-docker-proxy)
 
-We use the awesome [Caddy-Docker-Proxy](https://github.com/lucaslorentz/caddy-docker-proxy) to configure the reverse-proxy and automatically provision a TLS cert.
+We use [Caddy-Docker-Proxy](https://github.com/lucaslorentz/caddy-docker-proxy) to configure the reverse-proxy and automatically provision a TLS cert.
 
 ## Types of installs
 
