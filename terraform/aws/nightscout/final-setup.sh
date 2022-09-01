@@ -5,7 +5,7 @@
 # behaviour when trying to immediately start our docker stack.
 
 echo "Sleeping to ensure completion of other initialization processes..."
-sleep 30 #Ensuring the docker command is available
+sleep 60 #Ensuring the docker command is available
 echo "Adding ubuntu user to the docker group..."
 sudo usermod -aG docker ubuntu
 echo "Sleeping to ensure the next shell and additional software is ready..."
