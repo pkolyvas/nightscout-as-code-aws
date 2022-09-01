@@ -5,11 +5,11 @@
 # behaviour when trying to immediately start our docker stack.
 
 echo "Sleeping to ensure completion of other initialization processes..."
-sleep 35 #Ensuring the docker command is available
+sleep 30 #Ensuring the docker command is available
 echo "Adding ubuntu user to the docker group..."
 sudo usermod -aG docker ubuntu
 echo "Sleeping to ensure the next shell and additional software is ready..."
-sleep 35 #Ensuring the docker command is available
+sleep 30 #Ensuring the docker command is available
 echo "Done!"
 echo "Forcing reconnection...bye!"
 exit 

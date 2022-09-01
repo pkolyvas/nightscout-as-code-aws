@@ -5,7 +5,7 @@
 # behaviour when trying to immediately start our docker stack.
 
 echo "Sleeping for 60 seconds to make sure everything settles down following first-boot..."
-sleep 60 #Ensuring the docker command is available
+sleep 30 #Ensuring the docker command is available
 echo "Double checking groups"
 groups
 echo "Checking if docker is running"
