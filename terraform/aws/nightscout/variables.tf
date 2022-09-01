@@ -43,3 +43,8 @@ variable "private_launch_key" {
   sensitive   = true
   description = "The private openSSH key used to launch an instance."
 }
+
+variable "performance" {
+  type = string
+  description = "CPU Credit specification for the nightscout EC2 instance"
+}
