@@ -43,6 +43,10 @@ module "nightscout" {
   # Defaults to the official Canonical Ubuntu 22.04 LTS amd64 server AMI
   ami = data.aws_ami.ubuntu-22_04-amd64.id
 
+  # AWS-specific variables & features
+  performance = var.instance_performance
+
+  # Nightscout-specific variables & features
   domain   = var.my_nightscout_domain
   features = var.nightscout_features
   api_key  = var.nightscout_api_key
