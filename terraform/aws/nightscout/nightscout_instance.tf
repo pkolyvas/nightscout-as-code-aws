@@ -6,7 +6,7 @@ resource "aws_instance" "nightscout" {
   key_name                    = var.launch_key
   source_dest_check           = true
   disable_api_termination     = true
-  cpu_credits = standard
+  cpu_credits                 = "standard"
   tags = {
     "Application" = "Nightscout"
     "Name"        = "Nightscout and Mongo"
@@ -50,14 +50,14 @@ resource "aws_instance" "nightscout" {
   provisioner "remote-exec" {
     script = "nightscout/final-setup.sh"
   }
-  
+
   # Uploading this file to break the remote-exec connection
-   provisioner "file" {
+  provisioner "file" {
     source      = "nightscout/start-nightscout.sh"
     destination = "/home/ubuntu/start-nightscout.sh"
   }
 
   provisioner "remote-exec" {
-    script =  "nightscout/start-nightscout.sh"
+    script = "nightscout/start-nightscout.sh"
   }
 }
