@@ -2,7 +2,7 @@
 
 **Note: this is a work-in-progress and should not be used in production until this notice is removed**
 
-This project makes it *relatively* straightforward to deploy [Nightscout CGM](), on almost any platform, now that Heroku no longer offers a free tier. At the moment only AWS deployments have been complete, but Azure & GCP are expected in due time.
+This project makes it *relatively* straightforward to deploy [Nightscout CGM](https://github.com/nightscout/cgm-remote-monitor), on almost any platform, now that Heroku no longer offers a free tier. At the moment only AWS deployments have been complete, but Azure & GCP are expected in due time.
 
 <img width="1245" alt="Screen Shot 2022-08-30 at 7 51 58 PM" src="https://user-images.githubusercontent.com/43178667/187579976-075b77af-6ed2-4f89-9737-2b89effc2843.png">
 
