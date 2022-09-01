@@ -2,15 +2,17 @@
 
 **Note: this is a work-in-progress and should not be used in production until this notice is removed**
 
-This project makes it *relatively* straightforward to deploy [Nightscout CGM](https://github.com/nightscout/cgm-remote-monitor), on almost any platform, now that Heroku no longer offers a free tier. At the moment only AWS deployments have been complete, but Azure & GCP are expected in due time.
+This project makes it *relatively* straightforward to deploy [Nightscout CGM](https://github.com/nightscout/cgm-remote-monitor), on almost any platform, now that Heroku no longer offers a free tier. At the moment only AWS deployments have been completed, but Azure & GCP are expected in due time.
 
 <img width="1245" alt="Screen Shot 2022-08-30 at 7 51 58 PM" src="https://user-images.githubusercontent.com/43178667/187579976-075b77af-6ed2-4f89-9737-2b89effc2843.png">
 
-It's important to note that this is still fairly technical. However, taking the codified approach over the GUI approach has some benefits:
+It's important to note that this is still fairly technical, but you can follow the instructions and end up with a working Nightscout site. 
+
+Taking the codified approach over the GUI (clicky) approach has some benefits:
 - More straightforward for others to troubleshoot, because they can see exactly what's happening
 - Quickly copy this repository as a template
 - Quicky modify the templates for use with your flavour of, well, anything
-- Most importantly it allows you to track any changes you make and revert more easily than clicking a button somewhere
+- Most importantly it allows you to track any changes you make and revert more easily than clicking a button somewhere. By the same token you can upgrade with almost zero effort. 
 
 ## Approach
 
