@@ -28,7 +28,7 @@ Every iteration herein relies on a few key components:
 - [MongoDB](https://github.com/mongodb/mongo) (run via docker image)
 - [Caddy-Docker-Proxy](https://github.com/lucaslorentz/caddy-docker-proxy)
 
-We use [Caddy-Docker-Proxy](https://github.com/lucaslorentz/caddy-docker-proxy) to configure the reverse-proxy and automatically provision a TLS cert.
+We use [Caddy-Docker-Proxy](https://github.com/lucaslorentz/caddy-docker-proxy) to configure the reverse-proxy and automatically provision a TLS certificate for serving Nightscout over HTTPS.
 
 ## Types of installs
 
