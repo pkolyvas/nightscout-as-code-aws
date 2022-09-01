@@ -2,11 +2,7 @@
 
 **Note: this is a work-in-progress and should not be used in production until this notice is removed**
 
-This repo contains all the pieces of to run Nightscout-as-Code (NaC). With a few straightforward commands you'll be able to spin up and run Nightscout.
-
-## Goal
-
-The goal of this project is to make it *relatively* straightforward to deploy Nightscout CGM, on almost any platform, now that Heroku no longer offers a free tier. 
+This project makes it *relatively* straightforward to deploy [Nightscout CGM](), on almost any platform, now that Heroku no longer offers a free tier. At the moment only AWS deployments have been complete, but Azure & GCP are expected in due time.
 
 <img width="1245" alt="Screen Shot 2022-08-30 at 7 51 58 PM" src="https://user-images.githubusercontent.com/43178667/187579976-075b77af-6ed2-4f89-9737-2b89effc2843.png">
 
