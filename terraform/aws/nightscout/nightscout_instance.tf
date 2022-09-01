@@ -6,7 +6,9 @@ resource "aws_instance" "nightscout" {
   key_name                    = var.launch_key
   source_dest_check           = true
   disable_api_termination     = true
-  cpu_credits                 = "standard"
+  credit_specification {
+    cpu_credits = "standard"
+  }
   tags = {
     "Application" = "Nightscout"
     "Name"        = "Nightscout and Mongo"
