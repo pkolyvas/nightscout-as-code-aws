@@ -2,32 +2,33 @@
 
 **Note: this is a work-in-progress and should not be used in production until this notice is removed**
 
-This repo contains all the pieces of to run Nightscout-as-Code (NaC). With a few straightforward commands you'll be able to spin up and run Nightscout.
+This project makes it *relatively* straightforward to deploy [Nightscout CGM](https://github.com/nightscout/cgm-remote-monitor), on almost any platform, now that Heroku no longer offers a free tier. At the moment only AWS deployments have been completed, but Azure & GCP are expected in due time.
 
-## Goal
-
-The goal of this project is to make it *relatively* straightforward to deploy Nightscout CGM, on almost any platform, now that Heroku no longer offers a free tier. 
+You can [jump to the wiki](https://github.com/pkolyvas/nightscout-as-code/wiki) for Guides on how to deploy Nightscout for yourself. 
 
 <img width="1245" alt="Screen Shot 2022-08-30 at 7 51 58 PM" src="https://user-images.githubusercontent.com/43178667/187579976-075b77af-6ed2-4f89-9737-2b89effc2843.png">
 
-It's important to note that this is still fairly technical. However, taking the codified approach over the GUI approach has some benefits:
+It's important to note that this is still fairly technical, but you can follow the instructions and end up with a working Nightscout site. 
+
+Taking the codified approach over the GUI (clicky) approach has some benefits:
 - More straightforward for others to troubleshoot, because they can see exactly what's happening
 - Quickly copy this repository as a template
 - Quicky modify the templates for use with your flavour of, well, anything
-- Most importantly it allows you to track any changes you make and revert more easily than clicking a button somewhere
+- Most importantly it allows you to track any changes you make and revert more easily than clicking a button somewhere. By the same token you can upgrade with almost zero effort. 
+
 ## Approach
 
-This project ***does not** provide a free alternative to Heroku*. Rather it takes the position that these files can be easily run anywhere. We've even provided the ability to spin up and run Nightscout on AWS with very little effort.
+This project ***does not** provide a free alternative to Heroku*. Rather it takes the position that these files can be easily run anywhere for very low cost. 
 
 ## What's in the box
 
-Every iteration herein is relies on a few key components:
+Every iteration herein relies on a few key components:
 
 - [Nightscout](https://github.com/nightscout/cgm-remote-monitor) (run via docker image)
 - [MongoDB](https://github.com/mongodb/mongo) (run via docker image)
 - [Caddy-Docker-Proxy](https://github.com/lucaslorentz/caddy-docker-proxy)
 
-We use the awesome [Caddy-Docker-Proxy](https://github.com/lucaslorentz/caddy-docker-proxy) to configure the reverse-proxy and automatically provision a TLS cert.
+We use [Caddy-Docker-Proxy](https://github.com/lucaslorentz/caddy-docker-proxy) to configure the reverse-proxy and automatically provision a TLS certificate for serving Nightscout over HTTPS.
 
 ## Types of installs
 
