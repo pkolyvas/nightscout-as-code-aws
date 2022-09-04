@@ -39,4 +39,8 @@ terraform.rc
 # Mongo
 **/mongo-data
 
+# Infracost generated files
 .infracost
+
+# VSCode workspace
+*.code-workspace
