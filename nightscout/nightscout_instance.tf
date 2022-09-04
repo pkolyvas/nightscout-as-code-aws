@@ -53,12 +53,13 @@ resource "aws_instance" "nightscout" {
     script = "nightscout/final-setup.sh"
   }
 
-  # Uploading this file to break the remote-exec connection
+  # Uploading this file to ensure we terminate the first remote-exec connection
   provisioner "file" {
     source      = "nightscout/start-nightscout.sh"
     destination = "/home/ubuntu/start-nightscout.sh"
   }
 
+  # This script starts Nightscout
   provisioner "remote-exec" {
     script = "nightscout/start-nightscout.sh"
   }

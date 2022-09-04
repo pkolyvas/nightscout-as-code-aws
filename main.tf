@@ -26,6 +26,8 @@ module "launch_key_pair" {
   create_private_key = true
 }
 
+# Security groups we can add/remove from our Nightscout instance
+# Currently only HTTPS & SSH
 module "security_groups" {
   source = "./security_groups/"
   vpc_id = module.vpc.vpc_id
@@ -43,6 +45,11 @@ module "nightscout" {
   # Defaults to the official Canonical Ubuntu 22.04 LTS amd64 server AMI
   ami = data.aws_ami.ubuntu-22_04-amd64.id
 
+  # These are all the values we're going to collect to configure Nightscout
+  # The need to be defined in the root module variable definitions and 
+  # passed into this Nightscout module. Additionally you'll need to have the
+  # user_data (cloudinit) script convert these into environment variables we can use
+  # to configure nightscout via the Docker Compose file
   domain   = var.my_nightscout_domain
   features = var.nightscout_features
   api_key  = var.nightscout_api_key
