@@ -43,3 +43,15 @@ variable "private_launch_key" {
   sensitive   = true
   description = "The private openSSH key used to launch an instance."
 }
+
+variable "access_key" {
+  type = string
+  sensitive = true
+  description = "AWS access key id pass-through"  
+}
+
+variable "secret_key" {
+  type = string
+  sensitive = true
+  description = "AWS secret key pass-through"
+}

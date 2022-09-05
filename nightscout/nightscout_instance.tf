@@ -11,7 +11,7 @@ resource "aws_instance" "nightscout" {
   }
   tags = {
     "Application" = "Nightscout"
-    "Name"        = "Nightscout and Mongo"
+    "Name"        = "Nightscout"
     "Status"      = "Terraformed"
   }
 
@@ -24,10 +24,12 @@ resource "aws_instance" "nightscout" {
     create_before_destroy = true
   }
 
-  user_data = templatefile("nightscout/nightscout-bootstrap.sh", {
+  user_data = templatefile("nightscout/nightscout-userdata.sh", {
     api_key  = var.api_key
     domain   = var.domain
     features = var.features
+    access_key = var.access_key
+    secret_key = var.secret_key
   })
 
   connection {

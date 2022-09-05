@@ -40,6 +40,10 @@ module "nightscout" {
   subnet             = module.vpc.public_subnets.0
   launch_key         = module.launch_key_pair.key_pair_name
   private_launch_key = module.launch_key_pair.private_key_openssh
+  
+  
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
 
   # You can change this to any AMI of your choice. 
   # Defaults to the official Canonical Ubuntu 22.04 LTS amd64 server AMI

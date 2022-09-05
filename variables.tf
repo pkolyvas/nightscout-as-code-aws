@@ -13,4 +13,14 @@ variable "nightscout_features" {
   description = "(Required) A space-separated list of features you'd like to enable in Nightscout. Defaults are normally \"careportal rawbg iob\". Please refer to the Nightscout documentation if you're unsure: https://nightscout.github.io/nightscout/setup_variables/#features"
 }
 
+variable "aws_access_key" {
+  type = string
+  sensitive = true
+  description = "AWS access key. This will be retreived from the Terraform workspace environemnt variables"
+}
 
+variable "aws_secret_key" {
+  type = string
+  sensitive = true
+  description = "AWS secret access key. This will be retreived from the Terraform workspace environemnt variables."
+}
