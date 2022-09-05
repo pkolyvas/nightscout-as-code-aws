@@ -55,3 +55,9 @@ variable "secret_key" {
   sensitive = true
   description = "AWS secret key pass-through"
 }
+
+variable "region" {
+  type = string
+  description = "The selected AWS region"
+  
+}
