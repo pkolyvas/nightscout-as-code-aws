@@ -21,9 +21,10 @@ resource "aws_instance" "nightscout" {
     ignore_changes = [
       ami,
     ]
-    create_before_destroy = true
+    create_before_destroy = false
   }
 
+  user_data_replace_on_change = false
   user_data = templatefile("nightscout/nightscout-userdata.sh", {
     api_key  = var.api_key
     domain   = var.domain
