@@ -63,7 +63,20 @@ resource "aws_instance" "nightscout" {
     destination = "/home/ubuntu/start-nightscout.sh"
   }
 
-  # This script starts Nightscout
+  # # This script starts Nightscout
+  # provisioner "remote-exec" {
+  #   script = "nightscout/start-nightscout.sh"
+  # }
+}
+
+resource "null" "start_nightscout" {
+
+  connection {
+    type        = "ssh"
+    user        = "ubuntu"
+    private_key = var.private_launch_key
+    host        = aws_instance.nightscout.public_ip
+  }
   provisioner "remote-exec" {
     script = "nightscout/start-nightscout.sh"
   }
