@@ -69,7 +69,7 @@ resource "aws_instance" "nightscout" {
   # }
 }
 
-resource "null" "start_nightscout" {
+resource "null_resource" "start_nightscout" {
 
   connection {
     type        = "ssh"
