@@ -9,7 +9,7 @@ module "vpc" {
 
   # If you changed the region above you'll need to change these availability zones (AZs)
   # to match. You can get by using the "a" and "b" availability zones without too much worry.
-  azs = ["us-east-2a", "us-east-2b"]
+  azs = ["${var.aws_region}a", "${var.aws_region}b"]
 
   private_subnets = ["10.223.1.0/24", "10.223.2.0/24"]
   public_subnets  = ["10.223.3.0/24", "10.223.4.0/24"]

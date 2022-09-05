@@ -11,7 +11,7 @@ echo "Changing EC2 instance credit spec to standard..."
 aws ec2 modify-instance-credit-specification --instance-credit-sepcifications InstanceId=$INSTANCE_ID,CpuCredits=standard --no-cli-pager
 
 echo "Remove AWS credentials from intance environment & files..."
-sed '5,6d' ~/.env
+sed -i '5,6d' ~/.env
 unset AWS_ACCESS_KEY_ID
 unset AWS_SECRET_ACCESS_KEY
 

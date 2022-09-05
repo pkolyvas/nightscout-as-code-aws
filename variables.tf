@@ -16,11 +16,28 @@ variable "nightscout_features" {
 variable "aws_access_key" {
   type = string
   sensitive = true
-  description = "AWS access key. This will be retreived from the Terraform workspace environemnt variables"
+  description = "Your AWS access key ID."
 }
 
 variable "aws_secret_key" {
   type = string
   sensitive = true
-  description = "AWS secret access key. This will be retreived from the Terraform workspace environemnt variables."
+  description = "Your AWS secret access key."
+}
+
+# Choose a region for your deployment
+# The Default Region is for the East Coast of the US
+#
+# Other options:
+# Asia Pacific = "ap-south-1"
+# Canada = "ca-central-1"
+# Europe = "eu-central-1"
+# US West = "us-west-2"
+#
+# Please note costs will differ depending on the regions you choose and these configurations
+# have not been tested outside of North American regions.
+variable "aws_region" {
+  type = string
+  default = "us-east-2"
+  description = "The AWS region where you would like to run your Nightscout to run."
 }
