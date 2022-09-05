@@ -7,7 +7,7 @@ resource "aws_instance" "nightscout" {
   source_dest_check           = true
   disable_api_termination     = true
   credit_specification {
-    cpu_credits = "standard"
+    cpu_credits = "unlimited"
   }
   tags = {
     "Application" = "Nightscout"
