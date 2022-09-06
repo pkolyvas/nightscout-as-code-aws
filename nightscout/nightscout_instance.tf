@@ -104,6 +104,12 @@ resource "null_resource" "configure_nightscout_storage" {
     aws_volume_attachment.nightscout-data
   ]
 
+  lifecycle {
+    replace_triggered_by = [
+      aws_volume_attachment.nightscout-data
+    ]
+  }
+
   connection {
     type        = "ssh"
     user        = "ubuntu"
@@ -120,6 +126,7 @@ resource "null_resource" "start_nightscout" {
   depends_on = [
     null_resource.configure_nightscout_storage
   ]
+
   connection {
     type        = "ssh"
     user        = "ubuntu"
