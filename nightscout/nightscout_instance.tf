@@ -1,3 +1,19 @@
+# resource "aws_ebs_volume" "nightscout-data" {
+#   availability_zone = "${var.region}a"
+#   size              = var.storage
+#   tags = {
+#     Name = "Nightscout "
+#   }
+# }
+
+# resource "aws_ebs_snapshot" "nightscout-backup" {
+#   volume_id = aws_ebs_volume.nightscout-data.id
+
+#   tags = {
+#     Name = "Nightscout backup"
+#   }
+# }
+
 resource "aws_instance" "nightscout" {
   ami                         = var.ami
   associate_public_ip_address = true
@@ -24,13 +40,14 @@ resource "aws_instance" "nightscout" {
     create_before_destroy = true
   }
 
+  user_data_replace_on_change = true
   user_data = templatefile("nightscout/nightscout-userdata.sh", {
-    api_key  = var.api_key
-    domain   = var.domain
-    features = var.features
+    api_key    = var.api_key
+    domain     = var.domain
+    features   = var.features
     access_key = var.access_key
     secret_key = var.secret_key
-    region = var.region
+    region     = var.region
   })
 
   connection {
@@ -40,7 +57,7 @@ resource "aws_instance" "nightscout" {
     host        = self.public_ip
   }
 
-  
+
 
   provisioner "file" {
     source      = "nightscout/final-setup.sh"
@@ -49,7 +66,7 @@ resource "aws_instance" "nightscout" {
 
   # Initial configuration and bootstrapping
   provisioner "remote-exec" {
-    script ="nightscout/bootstrap.sh"
+    script = "nightscout/bootstrap.sh"
   }
 
   # Uploading files

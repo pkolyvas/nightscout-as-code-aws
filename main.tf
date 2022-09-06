@@ -36,15 +36,15 @@ module "security_groups" {
 # This is our Nightscount Module
 module "nightscout" {
   source             = "./nightscout/"
-  security_groups    = [module.security_groups.allow-https, module.security_groups.allow-ssh ] 
+  security_groups    = [module.security_groups.allow-https, module.security_groups.allow-ssh]
   subnet             = module.vpc.public_subnets.0
   launch_key         = module.launch_key_pair.key_pair_name
   private_launch_key = module.launch_key_pair.private_key_openssh
-  
+
   # AWS Configuration values for Nightscout bootstraping/provisioning
   access_key = var.aws_access_key
   secret_key = var.aws_secret_key
-  region = var.aws_region
+  region     = var.aws_region
 
   # You can change this to any AMI of your choice. 
   # Defaults to the official Canonical Ubuntu 22.04 LTS amd64 server AMI
@@ -58,4 +58,5 @@ module "nightscout" {
   domain   = var.my_nightscout_domain
   features = var.nightscout_features
   api_key  = var.nightscout_api_key
+  storage  = var.storage
 }

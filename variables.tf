@@ -14,14 +14,14 @@ variable "nightscout_features" {
 }
 
 variable "aws_access_key" {
-  type = string
-  sensitive = true
+  type        = string
+  sensitive   = true
   description = "Your AWS access key ID."
 }
 
 variable "aws_secret_key" {
-  type = string
-  sensitive = true
+  type        = string
+  sensitive   = true
   description = "Your AWS secret access key."
 }
 
@@ -37,7 +37,13 @@ variable "aws_secret_key" {
 # Please note costs will differ depending on the regions you choose and these configurations
 # have not been tested outside of North American regions.
 variable "aws_region" {
-  type = string
-  default = "us-east-2"
+  type        = string
+  default     = "us-east-2"
   description = "The AWS region where you would like to run your Nightscout to run."
+}
+
+variable "storage" {
+  type        = number
+  default     = 8
+  description = "The amount of storage for your Nightscout data, in GB."
 }
