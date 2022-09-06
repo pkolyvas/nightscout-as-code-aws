@@ -15,6 +15,8 @@ echo 'export AWS_ACCESS_KEY_ID="${access_key}"' >> /home/ubuntu/.env
 echo 'export AWS_SECRET_ACCESS_KEY="${secret_key}"' >> /home/ubuntu/.env
 echo 'export AWS_DEFAULT_REGION="${region}"' >> /home/ubuntu/.env
 
+cat /home/ubuntu/.env >> /home/ubuntu/.profile
+
 # echo "Updating the system and installing Docker CE"
 # apt-get install -y apt-transport-https ca-certificates curl software-properties-common
 # curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
