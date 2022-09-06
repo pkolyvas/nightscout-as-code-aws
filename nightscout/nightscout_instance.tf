@@ -1,19 +1,4 @@
-# resource "aws_ebs_volume" "nightscout-data" {
-#   availability_zone = "${var.region}a"
-#   size              = var.storage
-#   tags = {
-#     Name = "Nightscout "
-#   }
-# }
-
-# resource "aws_ebs_snapshot" "nightscout-backup" {
-#   volume_id = aws_ebs_volume.nightscout-data.id
-
-#   tags = {
-#     Name = "Nightscout backup"
-#   }
-# }
-
+# The Nightscout instance
 resource "aws_instance" "nightscout" {
   ami                         = var.ami
   associate_public_ip_address = true
@@ -57,12 +42,10 @@ resource "aws_instance" "nightscout" {
     host        = self.public_ip
   }
 
-
-
-  provisioner "file" {
-    source      = "nightscout/final-setup.sh"
-    destination = "/home/ubuntu/final-setup.sh"
-  }
+  # provisioner "file" {
+  #   source      = "nightscout/final-setup.sh"
+  #   destination = "/home/ubuntu/final-setup.sh"
+  # }
 
   # Initial configuration and bootstrapping
   provisioner "remote-exec" {
@@ -80,13 +63,69 @@ resource "aws_instance" "nightscout" {
     script = "nightscout/docker-setup.sh"
   }
 
-  # Uploading this file to ensure we terminate the first remote-exec connection
-  provisioner "file" {
-    source      = "nightscout/start-nightscout.sh"
-    destination = "/home/ubuntu/start-nightscout.sh"
-  }
+  # # Uploading this file to ensure we terminate the first remote-exec connection
+  # provisioner "file" {
+  #   source      = "nightscout/start-nightscout.sh"
+  #   destination = "/home/ubuntu/start-nightscout.sh"
+  # }
 
-  # This script starts Nightscout
+  # # This script starts Nightscout
+  # provisioner "remote-exec" {
+  #   script = "nightscout/start-nightscout.sh"
+  # }
+}
+
+# Creating a resource to handle persistent storage of nightscout data
+resource "aws_ebs_volume" "nightscout-data" {
+  availability_zone = "${var.region}a"
+  size              = var.storage
+  tags = {
+    Name = "Nightscout data"
+  }
+}
+
+resource "aws_volume_attachment" "nightscout-data" {
+  device_name = "/dev/sdh"
+  volume_id   = aws_ebs_volume.nightscout-data.id
+  instance_id = aws_instance.nightscout.id
+}
+
+resource "aws_ebs_snapshot" "nightscout-backup" {
+  volume_id = aws_ebs_volume.nightscout-data.id
+
+  tags = {
+    Name = "Nightscout data snapshot"
+    Date = formatdate("YYYY-MM-DD", timestamp())
+  }
+}
+
+resource "null_resource" "configure_nightscout_storage" {
+  depends_on = [
+    aws_volume_attachment.nightscout-data
+  ]
+
+  connection {
+    type        = "ssh"
+    user        = "ubuntu"
+    private_key = var.private_launch_key
+    host        = aws_instance.nightscout.public_ip
+  }
+  provisioner "remote-exec" {
+    script = "nightscout/configure-nightscout-storage.sh"
+  }
+}
+
+
+resource "null_resource" "start_nightscout" {
+  depends_on = [
+    null_resource.configure_nightscout_storage
+  ]
+  connection {
+    type        = "ssh"
+    user        = "ubuntu"
+    private_key = var.private_launch_key
+    host        = aws_instance.nightscout.public_ip
+  }
   provisioner "remote-exec" {
     script = "nightscout/start-nightscout.sh"
   }
