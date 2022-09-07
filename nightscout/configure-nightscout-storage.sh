@@ -1,7 +1,7 @@
 #!/bin/bash
 
-DATADIR = /nightscout_data
-EBS_DEV = /dev/nvme1n1
+DATADIR=/nightscout_data
+EBS_DEV=/dev/nvme1n1
 
 checkMongoMount () {
     if findmnt --target /data > /dev/null; then
