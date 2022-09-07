@@ -88,6 +88,11 @@ resource "null_resource" "configure_nightscout_storage" {
     aws_volume_attachment.nightscout-data
   ]
 
+  # Trigger an update if we modify this on a future upgrade
+  triggers = {
+    filesha = filesha1("nightscout/configure-nightscout-storage.sh")
+  }
+
   lifecycle {
     replace_triggered_by = [
       aws_volume_attachment.nightscout-data
