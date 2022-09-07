@@ -1,6 +1,6 @@
 #!/bin/bash
 
-env
+source ~/.env
 
 INSTANCE_ID=`aws ec2 describe-instances --filters Name=tag:Name,Values=Nightscout Name=instance-state-name,Values=running --region ${AWS_DEFAULT_REGION} | grep -o -E '\"i-[a-z0-9]*\"' | grep -o 'i-[a-z0-9]*'`
 
