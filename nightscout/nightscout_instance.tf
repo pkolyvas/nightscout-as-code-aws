@@ -1,4 +1,8 @@
 # The Nightscout instance
+# Here we configure the EC2 instance with the necessary software.
+# We install Docker Container Engine, Docker Compose, and the AWS CLI tooling
+# Then we configure the persistent storage to keep our users' BG data safe between upgrades
+# We also enable a snapshot of the data before the instance is modified.
 resource "aws_instance" "nightscout" {
   ami                         = var.ami
   associate_public_ip_address = true
@@ -25,6 +29,9 @@ resource "aws_instance" "nightscout" {
     create_before_destroy = true
   }
 
+  # We use the user_data and a template file to configure all the variables for nightscout
+  # That way we can replace the instance on an upgrade or when values change
+  # We won't loose the data however because of the ebs volume we add later on in the process
   user_data_replace_on_change = true
   user_data = templatefile("nightscout/nightscout-userdata.sh", {
     api_key    = var.api_key
