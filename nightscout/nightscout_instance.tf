@@ -116,6 +116,10 @@ resource "null_resource" "start_nightscout" {
     null_resource.configure_nightscout_storage
   ]
 
+   triggers = {
+    filesha = filesha1("nightscout/configure-nightscout-storage.sh")
+  }
+
   connection {
     type        = "ssh"
     user        = "ubuntu"
