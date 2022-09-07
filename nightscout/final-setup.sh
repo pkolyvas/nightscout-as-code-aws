@@ -14,7 +14,7 @@ checkDocker () {
     then
         echo "Docker is running..."
     else
-        echo "Oops. Docker is not running yet. Sleep time..."
+        echo "Oops. Docker is not running yet. Waiting..."
         sleep 15
         checkDocker        
     fi

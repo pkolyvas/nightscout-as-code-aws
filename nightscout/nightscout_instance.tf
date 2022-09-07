@@ -26,7 +26,7 @@ resource "aws_instance" "nightscout" {
     ignore_changes = [
       ami,
     ]
-    create_before_destroy = true
+    create_before_destroy = false
   }
 
   # We use the user_data and a template file to configure all the variables for nightscout
