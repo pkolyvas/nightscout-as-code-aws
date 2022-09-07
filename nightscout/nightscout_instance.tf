@@ -42,37 +42,21 @@ resource "aws_instance" "nightscout" {
     host        = self.public_ip
   }
 
-  # provisioner "file" {
-  #   source      = "nightscout/final-setup.sh"
-  #   destination = "/home/ubuntu/final-setup.sh"
-  # }
-
-  # Initial configuration and bootstrapping
+  # Installing Docker CE, Docker Compose and AWS CLI
   provisioner "remote-exec" {
     script = "nightscout/bootstrap.sh"
   }
 
-  # Uploading files
+  # Uploading Docker Compose file
   provisioner "file" {
     source      = "nightscout/docker-compose.yml"
     destination = "/home/ubuntu/docker-compose.yml"
   }
 
-  # Docker configuration
+  # Docker configuration and check
   provisioner "remote-exec" {
     script = "nightscout/docker-setup.sh"
   }
-
-  # # Uploading this file to ensure we terminate the first remote-exec connection
-  # provisioner "file" {
-  #   source      = "nightscout/start-nightscout.sh"
-  #   destination = "/home/ubuntu/start-nightscout.sh"
-  # }
-
-  # # This script starts Nightscout
-  # provisioner "remote-exec" {
-  #   script = "nightscout/start-nightscout.sh"
-  # }
 }
 
 # Creating a resource to handle persistent storage of nightscout data
