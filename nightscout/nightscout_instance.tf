@@ -125,6 +125,7 @@ resource "null_resource" "start_nightscout" {
 
    triggers = {
     filesha = filesha1("nightscout/configure-nightscout-storage.sh")
+    filesha = filesha1("nightscout/start-nightscout.sh")
   }
 
   connection {
