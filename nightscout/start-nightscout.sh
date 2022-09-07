@@ -1,6 +1,6 @@
 #!/bin/bash
 
-INSTANCE_ID=`aws ec2 describe-instances --filters Name=tag:Name,Values=Hightscout --region | grep -o -E '\"i-[a-z0-9]*\"' | grep -o 'i-[a-z0-9]*'`
+INSTANCE_ID=`aws ec2 describe-instances --filters Name=tag:Name,Values=Hightscout --region $AWS_DEFAULT_REGION | grep -o -E '\"i-[a-z0-9]*\"' | grep -o 'i-[a-z0-9]*'`
 
 echo "Remove credit limitation for update process..."
 aws ec2 modify-instance-credit-specification --instance-credit-specifications InstanceId=$INSTANCE_ID,CpuCredits=unlimited --no-cli-pager --region $AWS_DEFAULT_REGION
