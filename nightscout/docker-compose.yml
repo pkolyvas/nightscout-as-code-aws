@@ -24,7 +24,7 @@ services:
     networks:
       - caddy
     volumes:
-      - ${NS_MONGO_DATA_DIR:-./mongo-data}:/data/db:cached
+      - /nightscout_data/mongo:/data/db:cached
     restart: unless-stopped
 
   nightscout:
