@@ -9,6 +9,7 @@ docker network create caddy
 echo "Running Docker Compose..."
 docker-compose -f /home/ubuntu/docker-compose.yml up -d
 
-echo "Changing EC2 instance credit spec to standard..."
-aws ec2 modify-instance-credit-specification --instance-credit-specifications InstanceId=$INSTANCE_ID,CpuCredits=standard --region ${AWS_DEFAULT_REGION}
+# echo "Changing EC2 instance credit spec to standard..."
+# aws ec2 modify-instance-credit-specification --instance-credit-specifications InstanceId=$INSTANCE_ID,CpuCredits=standard --region ${AWS_DEFAULT_REGION}
+
 echo "Done!"
