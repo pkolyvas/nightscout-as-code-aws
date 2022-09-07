@@ -13,8 +13,10 @@ checkMongoMount () {
         echo "Adding disk to the filesystem table..."
         OUTPUT="$(sudo blkid -s UUID -o value /dev/nvme1n1p1)"
         echo "UUID=$OUTPUT    /data   ext4    defaults    0    1" | sudo tee -a /etc/fstab
-        echo "Mounting Mongo data directory"
-        sudo mount /data
+        echo "Configuring mount directory..."
+        sudo mkdir -p /nightscout_data/
+        echo "Mounting Mongo data directory..."
+        sudo mount /nightscout_data
         echo "Checking mount..."
         #checkMongoMount
     fi
