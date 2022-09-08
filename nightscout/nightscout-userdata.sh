@@ -19,7 +19,7 @@ echo 'export AWS_DEFAULT_REGION="${region}"' >> /home/ubuntu/.env
 echo 'export MONGO_IMAGE="${mongo_image}"' >> /home/ubuntu/.env
 echo 'export MONGO_IMAGE_TAG="${mongo_image_tag}"' >> /home/ubuntu/.env
 echo 'export NIGHTSCOUT_IMAGE="${nightscout_image}"' >> /home/ubuntu/.env
-echo 'export NIGHTSCOUT_IMAGE_TAG="${nighscout_image_tag}"' >> /home/ubuntu/.env
+echo 'export NIGHTSCOUT_IMAGE_TAG="${nightscout_image_tag}"' >> /home/ubuntu/.env
 
 cat /home/ubuntu/.env >> /home/ubuntu/.profile
 
