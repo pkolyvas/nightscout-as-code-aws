@@ -1,6 +1,6 @@
-# Nightscout as Code 
+# Nightscout as Code for AWS
 
-**Note: this is a work-in-progress and should not be used in production until this notice is removed**
+**Note: this is in an early testing phase and should be used with caution.
 
 This project makes it *relatively* straightforward to deploy [Nightscout CGM](https://github.com/nightscout/cgm-remote-monitor), on almost any platform, now that Heroku no longer offers a free tier. At the moment only AWS deployments have been completed, but Azure & GCP are expected in due time.
 
@@ -18,7 +18,7 @@ Taking the codified approach over the GUI (clicky) approach has some benefits:
 
 ## Approach
 
-This project ***does not** provide a free alternative to Heroku*. Rather it takes the position that these files can be easily run anywhere for very low cost. 
+This project ***does not** provide a free alternative to Heroku*. Rather it takes the position that these files can be more easily run anywhere for very low cost. 
 
 ## What's in the box
 
