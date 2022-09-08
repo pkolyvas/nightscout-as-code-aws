@@ -59,4 +59,10 @@ module "nightscout" {
   features = var.nightscout_features
   api_key  = var.nightscout_api_key
   storage  = var.storage
+
+  # Additional configuration options
+  nightscout_image = var.nightscout_image
+  nightscout_image_tag = var.nightscout_image_tag
+  mongo_image = var.mongo_image
+  mongo_image_tag = var.mongo_image_tag
 }

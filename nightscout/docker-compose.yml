@@ -20,7 +20,7 @@ services:
     restart: unless-stopped
 
   mongo:
-    image: mongo:4.4
+    image: ${MONGO_IMAGE}:${MONGO_IMAGE_TAG}
     networks:
       - caddy
     volumes:
@@ -28,7 +28,7 @@ services:
     restart: unless-stopped
 
   nightscout:
-    image: nightscout/cgm-remote-monitor:latest
+    image: ${NIGHTSCOUT_IMAGE}:${NIGHTSCOUT_IMAGE_TAG}
     networks:
       - caddy
     labels:

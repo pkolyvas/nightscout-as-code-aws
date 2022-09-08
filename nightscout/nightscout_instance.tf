@@ -40,6 +40,10 @@ resource "aws_instance" "nightscout" {
     access_key = var.access_key
     secret_key = var.secret_key
     region     = var.region
+    nightscout_image = var.nightscout_image
+    nightscout_image_tag = var.nightscout_image_tag
+    mongo_image = var.mongo_image
+    mongo_image_tag = var.mongo_image_tag
   })
 
   connection {
