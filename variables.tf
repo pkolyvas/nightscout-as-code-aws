@@ -25,9 +25,32 @@ variable "aws_secret_key" {
   description = "Your AWS secret access key."
 }
 
-##### 
+####################
+# Nightscout options
+####################
+
+variable "disable" {
+  type = string
+  default = ""
+  description = "Used to disable default features, expects a space delimited list."
+}
+
+variable "base_url" {
+  type = string
+  default = ""
+  description = "Used for building links to your site's API, i.e. Pushover callbacks, usually the URL of your Nightscout site."
+}
+
+variable "auth_default_roles" {
+  type = string
+  default = ""
+  description = "Possible values `readable`, `denied`, or any valid role name. When readable, anyone can view Nightscout without a token. Setting it to `denied` will require a token from every visit, using status-only will enable api-secret based login."
+}
+
+
+###########################################
 # Additional configuration option variables
-####
+###########################################
 variable "nightscout_image" {
   type = string
   default = "nightscout/cgm-remote-monitor"
