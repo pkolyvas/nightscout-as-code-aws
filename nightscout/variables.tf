@@ -5,7 +5,6 @@ variable "domain" {
 
 variable "instance_type" {
   type        = string
-  default     = "t3.nano"
   description = "(Optional) The default instance type used for your installation of Nightscout. Defaults to t3.nano, the smallest instance."
 }
 
