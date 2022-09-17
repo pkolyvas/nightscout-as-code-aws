@@ -48,7 +48,8 @@ module "nightscout" {
 
   # You can change this to any AMI of your choice. 
   # Defaults to the official Canonical Ubuntu 22.04 LTS amd64 server AMI
-  ami = data.aws_ami.ubuntu-22_04-amd64.id
+  ami           = var.alternative_ami == "" ? data.aws_ami.ubuntu-22_04-amd64.id : var.alternative_ami
+  instance_type = var.aws_ec2_instance_type
 
   # These are all the values we're going to collect to configure Nightscout
   # The need to be defined in the root module variable definitions and 
@@ -61,8 +62,8 @@ module "nightscout" {
   storage  = var.storage
 
   # Additional configuration options
-  nightscout_image = var.nightscout_image
+  nightscout_image     = var.nightscout_image
   nightscout_image_tag = var.nightscout_image_tag
-  mongo_image = var.mongo_image
-  mongo_image_tag = var.mongo_image_tag
+  mongo_image          = var.mongo_image
+  mongo_image_tag      = var.mongo_image_tag
 }

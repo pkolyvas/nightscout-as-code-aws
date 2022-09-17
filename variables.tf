@@ -29,26 +29,26 @@ variable "aws_secret_key" {
 # Additional configuration option variables
 ####
 variable "nightscout_image" {
-  type = string
-  default = "nightscout/cgm-remote-monitor"
+  type        = string
+  default     = "nightscout/cgm-remote-monitor"
   description = "The Docker image used for Nightscout. Offers the opportunity to customize which image is being run. Defaults to the official Nightscout image."
 }
 
 variable "nightscout_image_tag" {
-  type = string
-  default = "latest"
+  type        = string
+  default     = "latest"
   description = "The tag used to specify which image version of nightscout is being run. Defaults to latest."
-} 
+}
 
 variable "mongo_image" {
-  type = string
-  default = "mongo"
+  type        = string
+  default     = "mongo"
   description = "The Docker image used for Mongo. Offers the opportunity to customize which mongo docker image is being run. Defaults to the offical mongo docker image."
 }
 
 variable "mongo_image_tag" {
-  type = string
-  default = "4.4"
+  type        = string
+  default     = "4.4"
   description = "The tag used to specify which image version of mongo is being run. Defaults to 4.4."
 }
 
@@ -73,4 +73,16 @@ variable "storage" {
   type        = number
   default     = 8
   description = "The amount of storage for your Nightscout data, in GB."
+}
+
+variable "alternative_ami" {
+  type        = string
+  default     = ""
+  description = "Specifiy an alternative ami for custom requirements. Defaults to Ubuntu 22.04 LTS for AMD64. Should be a debian-based distro."
+}
+
+variable "aws_ec2_instance_type" {
+  type        = string
+  default     = "t3.nano"
+  description = "Specify an ec2 instance type. Defaults to t3.nano."
 }

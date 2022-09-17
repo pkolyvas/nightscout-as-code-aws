@@ -5,7 +5,6 @@ variable "domain" {
 
 variable "instance_type" {
   type        = string
-  default     = "t3.nano"
   description = "(Optional) The default instance type used for your installation of Nightscout. Defaults to t3.nano, the smallest instance."
 }
 
@@ -68,21 +67,21 @@ variable "storage" {
 }
 
 variable "nightscout_image" {
-  type = string
+  type        = string
   description = "The Docker image used for Nightscout. Offers the opportunity to customize which image is being run. Defaults to the official Nightscout image."
 }
 
 variable "nightscout_image_tag" {
-  type = string
+  type        = string
   description = "The tag used to specify which image version of nightscout is being run. Defaults to latest."
-} 
+}
 
 variable "mongo_image" {
-  type = string
+  type        = string
   description = "The Docker image used for Mongo. Offers the opportunity to customize which mongo docker image is being run. Defaults to the offical mongo docker image."
 }
 
 variable "mongo_image_tag" {
-  type = string
+  type        = string
   description = "The tag used to specify which image version of mongo is being run. Defaults to 4.4."
 }
