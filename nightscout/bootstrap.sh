@@ -12,7 +12,7 @@ checkDocker () {
         echo "Oops. Docker is not running yet. Reinstalling..."
         sleep 15
         sudo apt-get update
-        sudo apt-get install -y docker-ce docker-compose awscli
+        sudo apt-get install -y --force-yes docker-ce docker-compose awscli
         checkDocker        
     fi
 }
